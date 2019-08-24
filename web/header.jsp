@@ -34,17 +34,17 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="home">Student-Accommodation</a>
         </div>
+        <% if (session.getAttribute("name") != null) { %>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="home">Home</a></li>
                 <% if (session.getAttribute("roleId") != null && (Integer) session.getAttribute("roleId") == 2) { %>
                 <li><a href="property">Property</a></li>
                 <% } %>
-                <li><a href="#"><%=session.getAttribute("name")%>'s Profile</a></li>
+                <li><a href="user"><%=session.getAttribute("name")%>'s Profile</a></li>
                 <li><a href="access">Log out</a></li>
             </ul>
-
-
+        <% } %>
         </div>
     </div>
 </div>

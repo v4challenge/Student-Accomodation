@@ -29,11 +29,11 @@ public class PropertyServlet extends HttpServlet {
             property.setTenants(Integer.parseInt(request.getParameter("tenants")));
             property.setAmount(Integer.parseInt(request.getParameter("amount")));
             property.setImage(request.getParameter("image"));
-            property.setAvailable(true);
-            if (action.equals("edit")) {
+            property.setAvailable(Boolean.parseBoolean(request.getParameter("is_available")));
+            if (action != null && action.equals("edit")) {
                 property.setPropertyId(Integer.parseInt(request.getParameter("propertyId")));
                 new PropertyDAO().updateProperty(property);
-            } else if (action.equals("delete")) {
+            } else if (action != null && action.equals("delete")) {
                 new PropertyDAO().deleteProperty(Integer.parseInt(request.getParameter("propertyId")));
             } else {
                 new PropertyDAO().addProperty(property);

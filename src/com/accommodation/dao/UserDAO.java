@@ -16,9 +16,9 @@ import static com.accommodation.util.PasswordMD5.getMD5;
 public class UserDAO {
     public void addUser(User user) throws SQLException {
         String query="INSERT INTO user (email, password, first_name, last_name, address, telephone_number, role_id, student_id," +
-                "in_rent, is_active) VALUES('"+user.getEmail()+"','"+user.getPassword()+"','"+user.getFirstName()+"'," +
+                "rent_id, is_active) VALUES('"+user.getEmail()+"','"+user.getPassword()+"','"+user.getFirstName()+"'," +
                 "'"+user.getLastName()+"','"+user.getAddress()+"','"+user.getTelephoneNumber()+"'," +
-                "'"+user.getRoleId()+"','"+user.getStudentId()+"',"+user.isInRent()+","+user.isActive()+")";
+                "'"+user.getRoleId()+"','"+user.getStudentId()+"','"+user.getRentId()+"',"+user.isActive()+")";
         DBConnector.executeQuery(query);
     }
 
@@ -32,6 +32,12 @@ public class UserDAO {
         return userList;
     }
 
+    public User getUser(int userId) throws SQLException{
+        ResultSet rs =DBConnector.resultsetExecute("SELECT * FROM user WHERE user_id ='"+userId+"'");
+        rs.next();
+        return processSummaryRow(rs);
+    }
+
     public User getValidateUser(String email, String password) throws SQLException, NoSuchAlgorithmException {
         password = getMD5(password);
         ResultSet rs =DBConnector.resultsetExecute("SELECT * FROM user WHERE email='"+email+"' AND password='"+password+"'");
@@ -39,9 +45,18 @@ public class UserDAO {
         return processSummaryRow(rs);
     }
 
-    public User getUser(int userId) throws SQLException{
-        ResultSet rs =DBConnector.resultsetExecute("SELECT * FROM user user_id ='"+userId+"'");
-        return processSummaryRow(rs);
+    public void updateUser(User user) throws SQLException{
+        String query="UPDATE user SET email='"+user.getEmail()+"',password='"+user.getPassword()+"'," +
+                "first_name='"+user.getFirstName()+"',last_name='"+user.getLastName()+"',address='"+
+                user.getAddress()+"',telephone_number='"+user.getTelephoneNumber()+"',role_id="+user.getRoleId()+
+                " ,student_id='"+user.getStudentId()+"',rent_id='"+user.getRentId()+"',is_active="+user.isActive()+
+                " WHERE user_id='"+user.getUserId()+"'";
+        DBConnector.executeQuery(query);
+    }
+
+    public void updateRentId(int propertyId, int userId) throws SQLException{
+        String query="UPDATE user SET rent_id='"+propertyId+"' WHERE user_id='"+userId+"'";
+        DBConnector.executeQuery(query);
     }
 
     public void deleteUser(int userId) throws SQLException{
@@ -49,7 +64,7 @@ public class UserDAO {
         DBConnector.executeQuery(query);
     }
 
-    protected static User processSummaryRow(ResultSet rs) throws SQLException {
+    private static User processSummaryRow(ResultSet rs) throws SQLException {
         User user= new User();
         user.setUserId(rs.getInt("user_id"));
         user.setEmail(rs.getString("email"));
@@ -60,7 +75,7 @@ public class UserDAO {
         user.setTelephoneNumber(rs.getString("telephone_number"));
         user.setRoleId(rs.getInt("role_id"));
         user.setStudentId(rs.getString("student_id"));
-        user.setInRent(rs.getBoolean("in_rent"));
+        user.setRentId(rs.getInt("rent_id"));
         user.setActive(rs.getBoolean("is_active"));
         return user;
     }

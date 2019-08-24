@@ -13,7 +13,7 @@ public class User {
     private String telephoneNumber;
     private String studentId;
     private int roleId;
-    private boolean inRent;
+    private int rentId;
     private boolean isActive;
 
     public String getEmail() {
@@ -72,12 +72,12 @@ public class User {
         this.roleId = roleId;
     }
 
-    public boolean isInRent() {
-        return inRent;
+    public int getRentId() {
+        return rentId;
     }
 
-    public void setInRent(boolean inRent) {
-        this.inRent = inRent;
+    public void setRentId(int rentId) {
+        this.rentId = rentId;
     }
 
     public boolean isActive() {

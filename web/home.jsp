@@ -32,7 +32,7 @@
                 <th>image</th>
                 <th>amount</th>
                 <th>isAvailable</th>
-                <td align="center" colspan="2">Action</td>
+                <td align="center" colspan="3">Action</td>
             </tr>
             <c:forEach var="property" items="${properties}">
             <tr>
@@ -46,6 +46,13 @@
                 <td><c:out value="${property.isAvailable()}" /></td>
                 <td><a href="property?edit=${property.propertyId}">Edit</a></td>
                 <td><a href="property?delete=${property.propertyId}">Delete</a></td>
+                <c:choose>
+                    <c:when test="${property.isAvailable()}"><td><a style="color: #10ca10f7" href="book?propertyId=${property.propertyId}">Book</a></td>
+                    </c:when>
+                    <c:otherwise>
+                    <td style="color: red;">Booked</td>
+                    </c:otherwise>
+                </c:choose>
             </tr>
         </c:forEach>
         </div>

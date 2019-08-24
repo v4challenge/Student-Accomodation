@@ -81,10 +81,22 @@
                 <td><br></td>
             </tr>
             <tr>
+                <td><label class="control-label">Booking</label></td>
+                <td>
+                    <select name="is_available" class="form-control">
+                        <option value="false" ${property.isAvailable() == false ? 'selected' : ''}>Booked</option>
+                        <option value="true" ${property.isAvailable() == true ? 'selected' : ''}>UnBooked</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td>
-                    <% if (request.getAttribute("action").equals("edit")) { %><button class="btn btn-primary" type="submit">Update</button>
-                    <% } else if (request.getAttribute("action").equals("delete")) { %><button class="btn btn-primary" type="submit">Delete</button>
+                    <% if (request.getAttribute("action") != null && request.getAttribute("action").equals("edit")) { %><button class="btn btn-primary" type="submit">Update</button>
+                    <% } else if (request.getAttribute("action") != null && request.getAttribute("action").equals("delete")) { %><button class="btn btn-primary" type="submit">Delete</button>
                     <% } else { %><button class="btn btn-primary" type="submit">Signup</button>
                     <% } %>
                     &nbsp;

@@ -22,7 +22,7 @@ create table user(
    telephone_number VARCHAR(10) NOT NULL,
    role_id int NOT NULL,
    student_id VARCHAR(20) NOT NULL,
-   in_rent BOOLEAN,
+   rent_id int NOT NULL,
    is_active BOOLEAN,
    PRIMARY KEY (user_id)
 );

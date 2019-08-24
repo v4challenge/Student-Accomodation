@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import static com.accommodation.util.PasswordMD5.getMD5;
+import static com.accommodation.util.Util.createUserBean;
 
 /**
  * @author chanthan
@@ -20,30 +21,24 @@ import static com.accommodation.util.PasswordMD5.getMD5;
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-        User user = new User();
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(getMD5(request.getParameter("password")));
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setAddress(request.getParameter("address"));
-        user.setTelephoneNumber(request.getParameter("telephoneNumber"));
-        user.setRoleId(Integer.parseInt(request.getParameter("roleId")));
-        user.setStudentId(request.getParameter("studentId"));
-        user.setInRent(false);
-        user.setActive(true);
-        new UserDAO().addUser(user);
+        User user = createUserBean(request);
+        user.setUserId((Integer) request.getSession().getAttribute("userId"));
+        user.setPassword(request.getParameter("password"));
+        user.setRentId(Integer.parseInt(request.getParameter("rentId")));
+        new UserDAO().updateUser(user);
         } catch (SQLException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("user");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             request.setAttribute("roles", new RoleDAO().getRole());
+            request.setAttribute("user", new UserDAO().getUser((Integer) request.getSession().getAttribute("userId")));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("signup.jsp").forward(request, response);
+        request.getRequestDispatcher("user.jsp").forward(request, response);
     }
 }

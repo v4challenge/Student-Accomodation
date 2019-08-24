@@ -46,12 +46,17 @@ public class PropertyDAO {
         DBConnector.executeQuery(query);
     }
 
+    public void bookProperty(int propertyId) throws SQLException{
+        String query="UPDATE property SET is_available=false WHERE property_id='"+propertyId+"'";
+        DBConnector.executeQuery(query);
+    }
+
     public void deleteProperty(int propertyId) throws SQLException{
         String query="DELETE FROM property WHERE property_id ='"+propertyId+"'";
         DBConnector.executeQuery(query);
     }
 
-    protected static Property processSummaryRow(ResultSet rs) throws SQLException {
+    private static Property processSummaryRow(ResultSet rs) throws SQLException {
         Property property= new Property();
         property.setPropertyId(rs.getInt("property_id"));
         property.setUserId(rs.getInt("user_id"));
