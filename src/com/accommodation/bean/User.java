@@ -4,43 +4,103 @@ package com.accommodation.bean;
  * @author chanthan
  */
 public class User {
+    private int userId;
     private String email;
     private String password;
-    private String first_name;
-    /**
-     * @return the user_name
-     */
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String telephoneNumber;
+    private String studentId;
+    private int roleId;
+    private boolean inRent;
+    private boolean isActive;
+
     public String getEmail() {
         return email;
     }
-    /**
-     * @param email the user_name to set
-     */
+
     public void setEmail(String email) {
         this.email = email;
     }
-    /**
-     * @return the password
-     */
+
     public String getPassword() {
         return password;
     }
-    /**
-     * @param password the password to set
-     */
+
     public void setPassword(String password) {
         this.password = password;
     }
-    /**
-     * @return the first_name
-     */
-    public String getFirst_name() {
-        return first_name;
+
+    public String getFirstName() {
+        return firstName;
     }
-    /**
-     * @param first_name the first_name to set
-     */
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public boolean isInRent() {
+        return inRent;
+    }
+
+    public void setInRent(boolean inRent) {
+        this.inRent = inRent;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }

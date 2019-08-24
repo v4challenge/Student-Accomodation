@@ -1,4 +1,4 @@
-package com.accommodation.DAO;
+package com.accommodation.dao;
 
 import java.sql.*;
 import java.util.logging.Level;

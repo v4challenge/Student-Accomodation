@@ -1,1 +1,12 @@
-footer{text-align: center}
+footer{text-align: center; position: fixed; bottom: 5%; width: 100%;}
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.table{max-width: 80%;}

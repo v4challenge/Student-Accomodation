@@ -7,12 +7,39 @@
         <servlet-name>SignupServlet</servlet-name>
         <servlet-class>com.accommodation.servlet.SignupServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>AccessServlet</servlet-name>
+        <servlet-class>com.accommodation.servlet.AccessServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.accommodation.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PropertyServlet</servlet-name>
+        <servlet-class>com.accommodation.servlet.PropertyServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
-        <url-pattern>/SignupServlet</url-pattern>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccessServlet</servlet-name>
+        <url-pattern>/access</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PropertyServlet</servlet-name>
+        <url-pattern>/property</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

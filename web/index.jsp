@@ -9,53 +9,46 @@
 <html>
 <jsp:include page="header.jsp" />
 <body>
-  Hello Student-Accomodation
-  <div class="">
-    <table align="center">
-      <div class="jumbotron">
-        <form method="post" action="SignupServlet">
-          <tr>
-            <td colspan="2"><h3 class="form-signin-heading">Signup</h3></td>
-          </tr>
-          <tr>
-            <td><br></td>
-          </tr>
-          <tr>
-            <td><label class="control-label">Email</label></td>
-            <td><input type="email" class="form-control" placeholder="Email address" required autofocus
-                       name="email"></td>
-          </tr>
-          <tr>
-            <td><br></td>
-          </tr>
-          <tr>
-            <td><label class="control-label">Password</label></td>
-            <td><input type="password" class="form-control" placeholder="Password" required name="password">
-            </td>
-          </tr>
-
-          <tr>
-            <td><br></td>
-          </tr>
-          <tr>
-            <td><label class="control-label">First Name</label></td>
-            <td><input type="text" class="form-control" placeholder="First name" required name="first_name">
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <button class="btn btn-primary" type="submit">Signup</button>
-              &nbsp;
-              <button class="btn btn-primary" type="reset">Reset</button>
-            </td>
-            &nbsp;&nbsp;&nbsp;
-          </tr>
-
-        </form>
-      </div>
-    </table>
-  </div>
+  <table align="center">
+    <div class="jumbotron">
+      <form method="post" action="access">
+        <tr>
+          <td><h3 class="form-signin-heading">Login</h3></td>
+        </tr>
+        <tr>
+          <td><input type="email" name="email" class="form-control" placeholder="Email address" required
+                     autofocus></td>
+        </tr>
+        <tr>
+          <td><br></td>
+        </tr>
+        <tr>
+          <td><input type="password" name="password" class="form-control" placeholder="Password" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          </td>
+        </tr>
+        <tr>
+          <td><br></td>
+        </tr>
+        <tr>
+          <td><label>Don't have an account<a href="signup">&nbsp;Signup</a></label></td>
+        </tr>
+      </form>
+    </div>
+  </table>
   <jsp:include page="footer.jsp" />
 </body>
 </html>

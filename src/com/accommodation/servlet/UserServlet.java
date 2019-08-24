@@ -1,8 +1,8 @@
 package com.accommodation.servlet;
 
+import com.accommodation.bean.User;
 import com.accommodation.dao.RoleDAO;
 import com.accommodation.dao.UserDAO;
-import com.accommodation.bean.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ import static com.accommodation.util.PasswordMD5.getMD5;
 /**
  * @author chanthan
  */
-public class SignupServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
         User user = new User();
