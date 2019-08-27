@@ -22,6 +22,7 @@ public class AccessServlet extends HttpServlet {
             User user = new UserDAO().getValidateUser(request.getParameter("email"), request.getParameter("password"));
             HttpSession session = request.getSession();
             session.setAttribute("name", user.getFirstName());
+            session.setAttribute("email", user.getEmail());
             session.setAttribute("userId", user.getUserId());
             session.setAttribute("roleId", user.getRoleId());
             response.sendRedirect("home");

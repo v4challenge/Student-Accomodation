@@ -47,7 +47,7 @@
                 <td><a href="property?edit=${property.propertyId}">Edit</a></td>
                 <td><a href="property?delete=${property.propertyId}">Delete</a></td>
                 <c:choose>
-                    <c:when test="${property.isAvailable()}"><td><a style="color: #10ca10f7" href="book?propertyId=${property.propertyId}">Book</a></td>
+                    <c:when test="${property.isAvailable()}"><td><a style="color: #10ca10f7" href="book?propertyId=${property.propertyId}&userId=${property.userId}">Book</a></td>
                     </c:when>
                     <c:otherwise>
                     <td style="color: red;">Booked</td>
