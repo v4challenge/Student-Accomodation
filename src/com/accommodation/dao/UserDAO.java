@@ -59,6 +59,12 @@ public class UserDAO {
         DBConnector.executeQuery(query);
     }
 
+    public User getLastUser() throws SQLException{
+        ResultSet rs =DBConnector.resultsetExecute("SELECT * FROM user ORDER BY user_id DESC LIMIT 1");
+        rs.next();
+        return processSummaryRow(rs);
+    }
+
     public void deleteUser(int userId) throws SQLException{
         String query="DELETE FROM user WHERE user_id ='"+userId+"'";
         DBConnector.executeQuery(query);

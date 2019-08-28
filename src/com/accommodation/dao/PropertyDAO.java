@@ -51,6 +51,12 @@ public class PropertyDAO {
         DBConnector.executeQuery(query);
     }
 
+    public Property getLastProperty() throws SQLException{
+        ResultSet rs =DBConnector.resultsetExecute("SELECT * FROM property ORDER BY property_id DESC LIMIT 1");
+        rs.next();
+        return processSummaryRow(rs);
+    }
+
     public void deleteProperty(int propertyId) throws SQLException{
         String query="DELETE FROM property WHERE property_id ='"+propertyId+"'";
         DBConnector.executeQuery(query);
