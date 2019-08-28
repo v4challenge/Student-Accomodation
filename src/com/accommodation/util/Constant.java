@@ -1,4 +1,4 @@
-package com.accommodation.bean;
+package com.accommodation.util;
 
 /**
  * @author chanthan

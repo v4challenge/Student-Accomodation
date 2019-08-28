@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.accommodation.bean.Constant.*;
+import static com.accommodation.util.Constant.*;
 
 /**
  * @author chanthan

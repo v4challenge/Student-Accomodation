@@ -22,12 +22,12 @@ public class BookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int propertyId = Integer.parseInt(request.getParameter("propertyId"));
-            int userId = Integer.parseInt(request.getParameter("userId"));
+            int ownerId = Integer.parseInt(request.getParameter("userId"));
             UserDAO userDAO = new UserDAO();
             userDAO.updateRentId(propertyId, (Integer) request.getSession().getAttribute("userId"));
             new PropertyDAO().bookProperty(propertyId);
             String message = "New request for your property from this email:" + request.getSession().getAttribute("email");
-            sendEmail(userDAO.getUser(userId).getEmail(), "New Request for your Property", message);
+            sendEmail(userDAO.getUser(ownerId).getEmail(), "New Request for your Property", message);
         } catch (SQLException | MessagingException e) {
             e.printStackTrace();
         }

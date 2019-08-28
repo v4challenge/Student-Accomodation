@@ -3,17 +3,12 @@ package com.accommodation.util;
 import com.accommodation.bean.User;
 import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.Properties;
-import javax.mail.Authenticator;
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import static com.accommodation.bean.Constant.*;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import static com.accommodation.util.Constant.*;
 import static com.accommodation.util.PasswordMD5.getMD5;
 
 /**

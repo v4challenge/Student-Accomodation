@@ -44,8 +44,10 @@
                 <td><c:out value="${property.image}" /></td>
                 <td><c:out value="${property.amount}" /></td>
                 <td><c:out value="${property.isAvailable()}" /></td>
+                <% if (session.getAttribute("roleId") != null && (Integer) session.getAttribute("roleId") == 2) { %>
                 <td><a href="property?edit=${property.propertyId}">Edit</a></td>
                 <td><a href="property?delete=${property.propertyId}">Delete</a></td>
+                <% } %>
                 <c:choose>
                     <c:when test="${property.isAvailable()}"><td><a style="color: #10ca10f7" href="book?propertyId=${property.propertyId}&userId=${property.userId}">Book</a></td>
                     </c:when>
